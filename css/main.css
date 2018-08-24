@@ -1,0 +1,31 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+h1{
+  text-align:center;
+  color:#5fd7ff;
+  padding-top:10px;
+}
+ol{
+  width:70%;
+  margin:7px 15%;
+  border:1px solid transparent;
+}
+ol > li{
+  margin:10px 50px;
+}
+ol > li.active{
+  background:#5f87af;
+}
+main{
+  height:71vh;
+  display:flex;
+  flex-wrap:wrap;
+  border-top:1px solid #ddd;
+  border-right:1px solid #ddd;
+}
+main > section{
+  width:50%;
+  height:50%;
+  border:1px solid;
+  border-left:1px solid #ddd;
+  border-bottom:1px solid #ddd;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue demo</title>
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <h1>Vue demo</h1>
+  <ol id='list'>
+    <li v-for="tab in listMenu"
+      v-bind:class="{active:selected===tab.num}"
+      v-on:click="selected=tab.num">{{tab.content}}</li>
+  </ol>
+  <main>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>
