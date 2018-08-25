@@ -12,9 +12,9 @@ main > section.booksList{
   text-align:center;
   padding:70px 0;
 }
-main > section.booksList > p{}
+main > section.booksList > p{margin:30px 0;}
 main > section.booksList > span{}
-main > section.booksList > .buttons{margin:10px 0;}
+main > section.booksList > .buttons{margin:30px 0;}
 main > section.booksList > .buttons > button{margin:0 10px;}
 main > section.topLayer{background:gray;}
 main > section.tabChange{background:gray;}
