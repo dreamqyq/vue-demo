@@ -1,4 +1,4 @@
-let view = new Vue({
+let list = new Vue({
   el:'#list',
   data:{
     selected:null,
@@ -13,4 +13,14 @@ let view = new Vue({
   }
 })
 
+let exphibition = new Vue({
+  el:'#exhibition',
+  data:{
+    selected:null,
+    active:'active',
+    sectionClass:['booksList','topLayer','tabChange','slideShow']
+  },
+  methods:{
+  }
+})
 

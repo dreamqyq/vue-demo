@@ -1,31 +1,21 @@
 *{margin:0;padding:0;box-sizing:border-box;}
-h1{
+h1{ text-align:center; color:#5fd7ff; padding-top:10px; }
+ol{ width:70%; margin:7px 15%; border:1px solid transparent; list-style:none; counter-reset: section; }
+ol > li{ margin:10px 50px; transition:all .3s; cursor:pointer; }
+ol > li::before{ counter-increment: section; content: counters(section, ".") ". "; margin-right: .5em; }
+ol > li.active{ background:#5f87af; }
+main{ height:71vh; display:flex; flex-wrap:wrap; border-top:1px solid #ddd; border-right:1px solid #ddd; }
+main > section{ width:50%; height:50%; border:1px solid; border-left:1px solid #ddd; border-bottom:1px solid #ddd; transition:all .3s; }
+main > section.active{ box-shadow: inset 0px 0px 20px 3px rgba(37,52,168,1); }
+main > section.booksList{
+  background:#eaeaea;
   text-align:center;
-  color:#5fd7ff;
-  padding-top:10px;
+  padding:70px 0;
 }
-ol{
-  width:70%;
-  margin:7px 15%;
-  border:1px solid transparent;
-}
-ol > li{
-  margin:10px 50px;
-}
-ol > li.active{
-  background:#5f87af;
-}
-main{
-  height:71vh;
-  display:flex;
-  flex-wrap:wrap;
-  border-top:1px solid #ddd;
-  border-right:1px solid #ddd;
-}
-main > section{
-  width:50%;
-  height:50%;
-  border:1px solid;
-  border-left:1px solid #ddd;
-  border-bottom:1px solid #ddd;
-}
+main > section.booksList > p{}
+main > section.booksList > span{}
+main > section.booksList > .buttons{margin:10px 0;}
+main > section.booksList > .buttons > button{margin:0 10px;}
+main > section.topLayer{background:gray;}
+main > section.tabChange{background:gray;}
+main > section.slideShow{background:gray;}

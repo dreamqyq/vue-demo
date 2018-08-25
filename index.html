@@ -12,11 +12,30 @@
       v-bind:class="{active:selected===tab.num}"
       v-on:click="selected=tab.num">{{tab.content}}</li>
   </ol>
-  <main>
-    <section></section>
-    <section></section>
-    <section></section>
-    <section></section>
+  <main id="exhibition">
+    <section v-bind:class="[sectionClass[0],selected===0?active:'']" v-on:click="selected=0">
+      <p>
+        书名：<span class="bookName">《JavaScript高级程序设计》</span>
+        数量：<span class="bookNum">2</span>
+      </p>    
+      <div class="buttons">
+        <button id="addOne">ADD 1</button>
+        <button id="reduceOne">REDUCE 1</button>
+        <button id="reset">RESET</button>
+      </div>
+      <script>
+        
+      </script>
+    </section>
+    <section v-bind:class="[sectionClass[1],selected===1?active:'']" v-on:click="selected=1">
+    
+    </section>
+    <section v-bind:class="[sectionClass[2],selected===2?active:'']" v-on:click="selected=2">
+    
+    </section>
+    <section v-bind:class="[sectionClass[3],selected===3?active:'']" v-on:click="selected=3">
+    
+    </section>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="./js/main.js"></script>
