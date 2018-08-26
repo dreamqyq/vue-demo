@@ -13,16 +13,7 @@
       v-on:click="selected=tab.num">{{tab.content}}</li>
   </ol>
   <main id="exhibition">
-    <section v-bind:class="[sectionClass[0],selected===0?active:'']" v-on:click="selected=0">
-      <p class="booksContent">
-        书名：<span class="bookName">《JavaScript高级程序设计》</span>
-        数量：<span class="bookNum">__bookNum__</span>
-      </p>    
-      <div class="buttons">
-        <button id="addOne">ADD 1</button>
-        <button id="reduceOne">REDUCE 1</button>
-        <button id="reset">RESET</button>
-      </div>
+    <section id="app" v-bind:class="[sectionClass[0],selected===0?active:'']" v-on:click="selected=0">
     </section>
     <section v-bind:class="[sectionClass[1],selected===1?active:'']" v-on:click="selected=1">
     
@@ -35,23 +26,19 @@
     </section>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
   <script src="./js/main.js"></script>
-  <script>
-    let content = document.querySelector('.booksContent').innerHTML 
-    document.querySelector('.booksContent').innerHTML=content.replace('__bookNum__',2)
-    let bookNum = parseInt(document.querySelector('.bookNum').innerText,10)
-    document.querySelector('#addOne').onclick=function(){
-      bookNum += 1
-      document.querySelector('.booksContent').innerHTML=content.replace('__bookNum__',bookNum)
-    }
-    document.querySelector('#reduceOne').onclick=function(){
-      bookNum -= 1
-      document.querySelector('.booksContent').innerHTML=content.replace('__bookNum__',bookNum)
-    }
-    document.querySelector('#reset').onclick=function(){
-      bookNum = 0
-      document.querySelector('.booksContent').innerHTML=content.replace('__bookNum__',bookNum)
-    }
-  </script>
+  <script src="./js/books.js"></script>
+  <!--
+      <p class="booksContent">
+        书名：<span class="bookName">__bookName</span>
+        数量：<span class="bookNum">__bookNum__</span>
+      </p>    
+      <div class="buttons">
+        <button id="addOne">ADD 1</button>
+        <button id="reduceOne">REDUCE 1</button>
+        <button id="reset">RESET</button>
+      </div>
+  -->
 </body>
 </html>
