@@ -1,51 +1,137 @@
 fakeData()
-axios.get('/books/1').then(({data})=>{
-  let originalContent = document.querySelector('.booksContent').innerHTML
-  let newContent = originalContent.replace('__bookName__',data.name).replace('__bookNum__',data.num)
-  document.querySelector('.booksContent').innerHTML = newContent
+
+function Model(options){
+  this.data = options.data
+  this.resource = options.resource
+}
+Model.prototype.fetch = function(id){
+  return axios.get(`/${this.resource}s/${id}`).then((response) => {
+      this.data = response.data
+      console.log(this.data)
+      return response
+    })
+}
+Model.prototype.update = function(data){
+  let id = this.data.id
+    return axios.put(`/${this.resource}s/${id}`, data).then((response) => {
+      this.data = response.data 
+      console.log('response')
+      console.log(response)
+      return response
+    })
+}
+
+function View({el, template}){
+  this.el = el
+  this.template = template
+}
+View.prototype.render = function(data){
+  let html = this.template
+  for(let key in data){
+    html = html.replace(`__${key}__`, data[key])
+  }
+  $(this.el).html(html)
+}
+
+
+// ----------  上面是 MVC 类，下面是对象
+let model = new Model({
+  data: {
+    name: '',
+    number: 0,
+    id: ''
+  },
+  resource: 'book'
 })
 
-document.querySelector('#addOne').onclick = function() {
-  let bookNum = parseInt(document.querySelector('.bookNum').innerText, 10)
-  bookNum += 1
-  axios.put('/books/1',{num:bookNum}).then(()=>{
-    document.querySelector('.bookNum').innerHTML = bookNum
-  })
-}
-document.querySelector('#reduceOne').onclick = function() {
-  let bookNum = parseInt(document.querySelector('.bookNum').innerText, 10)
-  bookNum -= 1
-   axios.put('/books/1',{num:bookNum}).then(()=>{
-    document.querySelector('.bookNum').innerHTML = bookNum
-  })
-}
-document.querySelector('#reset').onclick = function() {
-  let bookNum = parseInt(document.querySelector('.bookNum').innerText, 10)
-  bookNum = 0
-   axios.put('/books/1',{num:bookNum}).then(()=>{
-    document.querySelector('.bookNum').innerHTML = bookNum
-  })
+let view = new View({
+  el: '.booksList',
+  template: `
+    <div>
+    书名：《__name__》
+    数量：<span id=number>__number__</span>
+    </div>
+    <div>
+      <button id="addOne">加1</button>
+      <button id="minusOne">减1</button>
+      <button id="reset">归零</button>
+    </div>
+  `
+})
+
+var controller = {
+  init({view,model}){
+     this.view = view
+     this.model = model
+    this.view.render(this.model.data)
+    this.bindEvents()
+    
+    this.model.fetch(1).then(() => {
+      this.view.render(this.model.data)
+    })
+    console.log(this)
+    
+  },
+  addOne() {
+    var oldNumber = $('#number').text() // string
+    var newNumber = oldNumber - 0 + 1
+    this.model.update({
+      number: newNumber
+    }).then(() => {
+      this.view.render(this.model.data)
+    })
+
+  },
+  minusOne() {
+    var oldNumber = $('#number').text() // string
+    var newNumber = oldNumber - 0 - 1
+    this.model.update({
+      number: newNumber
+    }).then(() => {
+      this.view.render(this.model.data)
+    })
+  },
+  reset() {
+    this.model.update({
+      number: 0
+    }).then(() => {
+      this.view.render(this.model.data)
+    })
+  },
+  bindEvents() {
+    // this === controller
+    $(this.view.el).on('click', '#addOne', this.addOne.bind(this))
+    $(this.view.el).on('click', '#minusOne', this.minusOne.bind(this))
+    $(this.view.el).on('click', '#reset', this.reset.bind(this))
+  }
 }
 
+controller.init({view:view, model: model})
+
+
+
+
+
+// 不要看
 function fakeData() {
-  // 一个假的数据库book
   let book = {
     name: 'JavaScript 高级程序设计',
-    num: 2,
+    number: 2,
     id: 1
   }
-  // 在真正返回response之前使用
   axios.interceptors.response.use(function(response) {
-    // 获取请求的数据
-    let {config: {method, url, data}} = response
+    let {
+      config: {
+        method, url, data
+      }
+    } = response
+
     if (url === '/books/1' && method === 'get') {
       response.data = book
     } else if (url === '/books/1' && method === 'put') {
       data = JSON.parse(data)
-      // 如果是PUT请求，说明要改后台数据，因此将数据库book中的数据部分更新即可
       Object.assign(book, data)
       response.data = book
-      console.log(book) //将数据库打印出来 
     }
     return response
   })
