@@ -13,7 +13,16 @@
       v-on:click="selected=tab.num">{{tab.content}}</li>
   </ol>
   <main id="exhibition">
-    <section id="app" v-bind:class="[sectionClass[0],selected===0?active:'']" v-on:click="selected=0">
+    <section v-bind:class="[sectionClass[0],selected===0?active:'']" v-on:click="selected=0">
+      <p class="booksContent">
+        书名：<span class="bookName">__bookName__</span>
+        数量：<span class="bookNum">__bookNum__</span>
+      </p>    
+      <div class="buttons">
+        <button id="addOne">ADD 1</button>
+        <button id="reduceOne">REDUCE 1</button>
+        <button id="reset">RESET</button>
+      </div>
     </section>
     <section v-bind:class="[sectionClass[1],selected===1?active:'']" v-on:click="selected=1">
     
@@ -29,16 +38,5 @@
   <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
   <script src="./js/main.js"></script>
   <script src="./js/books.js"></script>
-  <!--
-      <p class="booksContent">
-        书名：<span class="bookName">__bookName</span>
-        数量：<span class="bookNum">__bookNum__</span>
-      </p>    
-      <div class="buttons">
-        <button id="addOne">ADD 1</button>
-        <button id="reduceOne">REDUCE 1</button>
-        <button id="reset">RESET</button>
-      </div>
-  -->
 </body>
 </html>
