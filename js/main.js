@@ -18,11 +18,27 @@ let exphibition = new Vue({
   data:{
     selected:null,
     active:'active',
-    isOpen: false
+    isOpen: false,
+    colors:[
+      {number:'0',color:'red'},
+      {number:'1',color:'green'},
+      {number:'2',color:'blue'},
+      {number:'3',color:'orange'},
+      {number:'4',color:'pink'},
+      {number:'5',color:'cyan'},
+      {number:'6',color:'purple'}
+    ],
   },
   methods:{
     toggle(){
       this.isOpen = !this.isOpen
+    },
+    changeColor(event){
+      current = event.currentTarget
+      for(let i = 0; i < this.colors.length;i++){
+        current.parentNode.children[i].style.background = ''
+      }
+      current.style.background = current.innerHTML
     }
   }
 })

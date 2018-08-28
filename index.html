@@ -24,7 +24,11 @@
       </div>
     </section>
     <section v-bind:class="['tabChange',selected===2?active:'']" v-on:click="selected=2">
-    
+      <div class="tabList">
+        <ul>
+          <li v-for="color in colors" v-on:click="changeColor">{{color.color}}</li>
+        </ul>
+      </div>
     </section>
     <section v-bind:class="['slideShow',selected===3?active:'']" v-on:click="selected=3">
     

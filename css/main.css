@@ -20,4 +20,17 @@ main > section.topLayer .hiddenBox{ height:100px; width:140px; background:#5fd7f
 main > section.topLayer .hiddenBox::after{ content:''; display:inline-block; position:absolute; width:0px; height:0px; border:20px solid transparent; border-bottom-color:#5fd7ff; top:-40px; margin-left:-20px; }
 
 main > section.tabChange{background:gray;}
+main > section.tabChange > .tabList{
+  margin:20px;
+}
+main > section.tabChange > .tabList > ul{
+  list-style:none;
+  text-align:center;
+}
+main > section.tabChange > .tabList > ul > li{
+  margin:11px;
+  box-shadow:0 0 5px 1px #000;
+  transition:all .3s;
+  cursor:pointer;
+}
 main > section.slideShow{background:#ECECEC;}
