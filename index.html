@@ -13,18 +13,20 @@
       v-on:click="selected=tab.num">{{tab.content}}</li>
   </ol>
   <main id="exhibition">
-    <section v-bind:class="[sectionClass[0],selected===0?active:'']" v-on:click="selected=0">
+    <section v-bind:class="['booksList',selected===0?active:'']" v-on:click="selected=0">
       本节内容在github上无法正常演示，可用JSBin来测试<br>
       <a href="https://jsbin.com/dapotuj/edit?js,output">JSBin 链接</a>
-
     </section>
-    <section v-bind:class="[sectionClass[1],selected===1?active:'']" v-on:click="selected=1">
+    <section v-bind:class="['topLayer',selected===1?active:'']" v-on:click="selected=1">
+      <div class="topLayer-wrapper">
+          <button class="topLayer-btn" v-on:click="toggle">点我</button>
+          <div class="hiddenBox" v-if="isOpen"></div>
+      </div>
+    </section>
+    <section v-bind:class="['tabChange',selected===2?active:'']" v-on:click="selected=2">
     
     </section>
-    <section v-bind:class="[sectionClass[2],selected===2?active:'']" v-on:click="selected=2">
-    
-    </section>
-    <section v-bind:class="[sectionClass[3],selected===3?active:'']" v-on:click="selected=3">
+    <section v-bind:class="['slideShow',selected===3?active:'']" v-on:click="selected=3">
     
     </section>
   </main>

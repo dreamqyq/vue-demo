@@ -7,15 +7,17 @@ ol > li.active{ background:#5f87af; }
 main{ height:71vh; display:flex; flex-wrap:wrap; border-top:1px solid #ddd; border-right:1px solid #ddd; }
 main > section{ width:50%; height:50%; border:1px solid; border-left:1px solid #ddd; border-bottom:1px solid #ddd; transition:all .3s; }
 main > section.active{ box-shadow: inset 0px 0px 20px 3px rgba(37,52,168,1); }
-main > section.booksList{
-  background:#eaeaea;
-  text-align:center;
-  padding:70px 0;
-}
+
+main > section.booksList{ background:#eaeaea; text-align:center; padding:70px 0; }
 main > section.booksList > p{margin:30px 0;}
-main > section.booksList > span{}
 main > section.booksList > .buttons{margin:30px 0;}
 main > section.booksList > .buttons > button{margin:0 10px;}
+
 main > section.topLayer{background:gray;}
+main > section.topLayer > .topLayer-wrapper{ text-align:center; position:relative; }
+main > section.topLayer .topLayer-btn{ margin-top:20px; width:100px; height:50px; }
+main > section.topLayer .hiddenBox{ height:100px; width:140px; background:#5fd7ff; position:absolute; top:140%; left:50%; margin-left:-70px; transition:all .3s; }
+main > section.topLayer .hiddenBox::after{ content:''; display:inline-block; position:absolute; width:0px; height:0px; border:20px solid transparent; border-bottom-color:#5fd7ff; top:-40px; margin-left:-20px; }
+
 main > section.tabChange{background:gray;}
-main > section.slideShow{background:gray;}
+main > section.slideShow{background:#ECECEC;}

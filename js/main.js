@@ -18,9 +18,11 @@ let exphibition = new Vue({
   data:{
     selected:null,
     active:'active',
-    sectionClass:['booksList','topLayer','tabChange','slideShow']
+    isOpen: false
   },
   methods:{
+    toggle(){
+      this.isOpen = !this.isOpen
+    }
   }
 })
-
