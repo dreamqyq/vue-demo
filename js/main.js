@@ -19,6 +19,7 @@ let exphibition = new Vue({
     selected:null,
     active:'active',
     isOpen: false,
+    isTouch: 0,
     colors:[
       {number:0,color:'red'},
       {number:1,color:'green'},
@@ -40,8 +41,9 @@ let exphibition = new Vue({
       }
       current.style.background = current.innerHTML
     },
-    go(index){
+    go(index,event){
       let picsBox = this.$el.querySelector('.picsBox')
+      this.isTouch = index
       let distance = picsBox.offsetWidth/7
       picsBox.style.transform = `translateX(-${index*distance}px)`
     }

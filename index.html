@@ -40,7 +40,8 @@
       </div>
       <div class="btns">
         <button v-for="index in colors"
-          v-on:click="go(index.number)">{{index.number+1}}</button>
+                v-on:click="go(index.number,$event)"
+                v-bind:class="{active:isTouch===index.number}">{{index.number+1}}</button>
       </div>
     </section>
   </main>

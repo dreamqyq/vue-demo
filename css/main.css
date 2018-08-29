@@ -26,6 +26,7 @@ main > section.tabChange > .tabList > ul > li{ margin:11px; box-shadow:0 0 5px 1
 
 main > section.slideShow{background:#ECECEC; text-align:center;}
 main > section.slideShow > .window{ margin:20px; height:70%; overflow:hidden; }
-main > section.slideShow > .btns > button{ width:40px; height:30px; margin:0 5px; }
+main > section.slideShow > .btns > button{ width:40px; height:30px; margin:0 5px; outline:none;}
+main > section.slideShow > .btns > button.active{ box-shadow:0 0 5px 1px cyan;}
 main > section.slideShow > .window > ul.picsBox{ list-style:none; height:100%; width:700%; display:flex; transition:transform .3s; }
 main > section.slideShow > .window > ul.picsBox > li.pic{ height:100%; width:100%; line-height:186px; }
