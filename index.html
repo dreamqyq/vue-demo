@@ -31,7 +31,17 @@
       </div>
     </section>
     <section v-bind:class="['slideShow',selected===3?active:'']" v-on:click="selected=3">
-    
+      <div class="window">
+        <ul class="picsBox">
+          <li class="pic"
+              v-for="color in colors" 
+              v-bind:style="{background:color.color}">{{color.color}}</li>
+        </ul>
+      </div>
+      <div class="btns">
+        <button v-for="index in colors"
+          v-on:click="go(index.number)">{{index.number+1}}</button>
+      </div>
     </section>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

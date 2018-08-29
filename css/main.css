@@ -20,17 +20,12 @@ main > section.topLayer .hiddenBox{ height:100px; width:140px; background:#5fd7f
 main > section.topLayer .hiddenBox::after{ content:''; display:inline-block; position:absolute; width:0px; height:0px; border:20px solid transparent; border-bottom-color:#5fd7ff; top:-40px; margin-left:-20px; }
 
 main > section.tabChange{background:gray;}
-main > section.tabChange > .tabList{
-  margin:20px;
-}
-main > section.tabChange > .tabList > ul{
-  list-style:none;
-  text-align:center;
-}
-main > section.tabChange > .tabList > ul > li{
-  margin:11px;
-  box-shadow:0 0 5px 1px #000;
-  transition:all .3s;
-  cursor:pointer;
-}
-main > section.slideShow{background:#ECECEC;}
+main > section.tabChange > .tabList{ margin:20px; }
+main > section.tabChange > .tabList > ul{ list-style:none; text-align:center; }
+main > section.tabChange > .tabList > ul > li{ margin:11px; box-shadow:0 0 5px 1px #000; transition:all .3s; cursor:pointer; }
+
+main > section.slideShow{background:#ECECEC; text-align:center;}
+main > section.slideShow > .window{ margin:20px; height:70%; overflow:hidden; }
+main > section.slideShow > .btns > button{ width:40px; height:30px; margin:0 5px; }
+main > section.slideShow > .window > ul.picsBox{ list-style:none; height:100%; width:700%; display:flex; transition:transform .3s; }
+main > section.slideShow > .window > ul.picsBox > li.pic{ height:100%; width:100%; line-height:186px; }

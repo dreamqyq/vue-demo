@@ -20,13 +20,13 @@ let exphibition = new Vue({
     active:'active',
     isOpen: false,
     colors:[
-      {number:'0',color:'red'},
-      {number:'1',color:'green'},
-      {number:'2',color:'blue'},
-      {number:'3',color:'orange'},
-      {number:'4',color:'pink'},
-      {number:'5',color:'cyan'},
-      {number:'6',color:'purple'}
+      {number:0,color:'red'},
+      {number:1,color:'green'},
+      {number:2,color:'blue'},
+      {number:3,color:'orange'},
+      {number:4,color:'pink'},
+      {number:5,color:'cyan'},
+      {number:6,color:'purple'}
     ],
   },
   methods:{
@@ -39,6 +39,11 @@ let exphibition = new Vue({
         current.parentNode.children[i].style.background = ''
       }
       current.style.background = current.innerHTML
+    },
+    go(index){
+      let picsBox = this.$el.querySelector('.picsBox')
+      let distance = picsBox.offsetWidth/7
+      picsBox.style.transform = `translateX(-${index*distance}px)`
     }
   }
 })
