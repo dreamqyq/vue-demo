@@ -16,9 +16,15 @@ main > section.booksList > .buttons > button{margin:0 10px;}
 main > section.topLayer{background:gray;}
 main > section.topLayer > .topLayer-wrapper{ text-align:center; position:relative; }
 main > section.topLayer .topLayer-btn{ margin-top:20px; width:100px; height:50px; }
-main > section.topLayer .hiddenBox{ height:100px; width:140px; background:#5fd7ff; position:absolute; top:140%; left:50%; margin-left:-70px; transition:all .3s; }
+main > section.topLayer .hiddenBox{ height:100px; width:140px; background:#5fd7ff; position:absolute; top:140%; left:50%; margin-left:-70px;}
 main > section.topLayer .hiddenBox::after{ content:''; display:inline-block; position:absolute; width:0px; height:0px; border:20px solid transparent; border-bottom-color:#5fd7ff; top:-40px; margin-left:-20px; }
-
+.fade-enter-active,.fade-leave-active {
+  transition: all .3s ease;
+}
+.fade-enter, .fade-leave-to {
+  transform: translateY(10px);
+  opacity: 0;
+}
 main > section.tabChange{background:gray;}
 main > section.tabChange > .tabList{ margin:20px; }
 main > section.tabChange > .tabList > ul{ list-style:none; text-align:center; }

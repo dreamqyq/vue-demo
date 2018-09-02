@@ -20,7 +20,9 @@
     <section v-bind:class="['topLayer',selected===1?active:'']" v-on:click="selected=1">
       <div class="topLayer-wrapper">
           <button class="topLayer-btn" v-on:click="toggle">点我</button>
-          <div class="hiddenBox" v-if="isOpen"></div>
+          <transition name="fade">
+            <div class="hiddenBox" v-if="isOpen"></div>
+          </transition>
       </div>
     </section>
     <section v-bind:class="['tabChange',selected===2?active:'']" v-on:click="selected=2">
